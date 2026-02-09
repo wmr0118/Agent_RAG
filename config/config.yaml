@@ -1,0 +1,90 @@
+# LLM 配置
+llm:
+  provider: "qwen"  # 可选: "openai" 或 "qwen"
+  model_name: "qwen-flash"  # Qwen 模型: qwen-turbo, qwen-plus, qwen-max 等
+  temperature: 0.7
+  max_tokens: 2000
+  api_key: "${DASHSCOPE_API_KEY}"  # Qwen 使用 DASHSCOPE_API_KEY，OpenAI 使用 OPENAI_API_KEY
+
+# 向量数据库配置
+vector_db:
+  provider: "chroma"
+  persist_directory: "./data/chroma_db"
+  collection_name: "knowledge_base"
+
+# Embedding 配置
+embedding:
+  provider: "dashscope"  # 可选: "openai" 或 "dashscope" (Qwen)
+  model_name: "text-embedding-v2"  # Qwen: text-embedding-v2, OpenAI: text-embedding-3-small
+  batch_size: 100
+  dimension: 1536
+
+# 检索配置
+retrieval:
+  top_k: 5
+  similarity_threshold: 0.7
+  use_mmr: true
+  mmr_diversity: 0.5
+  rerank: true  # 启用重排序
+  rerank_top_n: 10  # 重排序后返回的文档数量
+
+# 多级索引配置
+multilevel_index:
+  level1:
+    enabled: true
+    top_k: 10
+    use_summary: true
+  level2:
+    enabled: true
+    top_k: 5
+  level3:
+    enabled: true
+    top_k: 3
+
+# Agent 配置
+agent:
+  max_iterations: 5
+  confidence_threshold: 0.7
+  enable_react: true
+  enable_reretrieval: true
+  enable_replanning: true
+
+# 查询处理配置
+query:
+  enable_rewrite: true
+  enable_intent_classification: true
+  rewrite_model: "gpt-3.5-turbo"
+
+# 记忆机制配置
+memory:
+  enabled: true
+  max_memories: 100
+  memory_expiry_days: 30
+  similarity_threshold: 0.6
+
+# 工具配置
+tools:
+  bing_search:
+    enabled: false
+    api_key: "${BING_API_KEY}"
+    endpoint: "https://api.bing.microsoft.com/v7.0/search"
+  database:
+    enabled: false
+    connection_string: "${DATABASE_URL}"
+
+# 文档处理配置
+document:
+  chunk_size: 1000
+  chunk_overlap: 200
+  enable_metadata: true
+
+# 评估配置
+evaluation:
+  test_set_path: "./data/test_set.json"
+  metrics:
+    - "recall@5"
+    - "recall@10"
+    - "answer_quality"
+    - "factual_accuracy"
+    - "consistency"
+

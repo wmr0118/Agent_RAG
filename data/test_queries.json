@@ -1,0 +1,235 @@
+[
+  {
+    "id": "query_001",
+    "question": "如何创建用户？",
+    "expected_answer": "登录管理后台，进入用户管理页面，点击新建用户按钮，填写用户名、邮箱、密码和角色，保存后用户会收到激活邮件。",
+    "relevant_docs": ["06-用户管理.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "基础操作"
+  },
+  {
+    "id": "query_002",
+    "question": "用户怎么弄？",
+    "expected_answer": "登录管理后台，进入用户管理页面，点击新建用户按钮，填写用户名、邮箱、密码和角色，保存后用户会收到激活邮件。",
+    "relevant_docs": ["06-用户管理.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "模糊查询",
+    "note": "测试query改写：模糊问法"
+  },
+  {
+    "id": "query_003",
+    "question": "如何创健用户？",
+    "expected_answer": "登录管理后台，进入用户管理页面，点击新建用户按钮，填写用户名、邮箱、密码和角色，保存后用户会收到激活邮件。",
+    "relevant_docs": ["06-用户管理.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "错别字",
+    "note": "测试query改写：错别字纠正"
+  },
+  {
+    "id": "query_004",
+    "question": "我想了解一下如何在系统中创建一个新的用户账户，需要哪些步骤？",
+    "expected_answer": "登录管理后台，进入用户管理页面，点击新建用户按钮，填写用户名（3-20字符）、邮箱（需验证）、密码（至少8位，包含字母和数字）和角色，保存后用户会收到激活邮件。",
+    "relevant_docs": ["06-用户管理.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "长问题",
+    "note": "测试query改写：复杂→简化"
+  },
+  {
+    "id": "query_005",
+    "question": "创建用户",
+    "expected_answer": "登录管理后台，进入用户管理页面，点击新建用户按钮，填写用户名、邮箱、密码和角色，保存后用户会收到激活邮件。",
+    "relevant_docs": ["06-用户管理.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "短问题",
+    "note": "测试query改写：简单→扩展"
+  },
+  {
+    "id": "query_006",
+    "question": "如何重置用户密码？",
+    "expected_answer": "管理员可以在用户详情页面的安全设置标签中重置用户密码。重置后用户会收到邮件通知，需要重新设置密码。",
+    "relevant_docs": ["06-用户管理.md", "12-常见问题.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "高频问题"
+  },
+  {
+    "id": "query_007",
+    "question": "工单系统是什么？",
+    "expected_answer": "工单系统用于跟踪和管理客户问题，支持问题分配、流转、升级和统计分析。工单可以来自用户对话、邮件、电话等多种渠道。",
+    "relevant_docs": ["08-工单系统.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "概念查询"
+  },
+  {
+    "id": "query_008",
+    "question": "如何创建工单？",
+    "expected_answer": "可以在对话窗口中直接创建工单，或在工单管理页面手动创建。创建时需要填写工单标题、问题描述、优先级等信息。",
+    "relevant_docs": ["08-工单系统.md"],
+    "difficulty": "medium",
+    "intent": "factual",
+    "test_type": "操作指南"
+  },
+  {
+    "id": "query_009",
+    "question": "如何配置多租户权限？",
+    "expected_answer": "企业版支持创建自定义角色。在角色管理页面点击新建角色，输入角色名称，选择需要的权限项（用户管理权限、内容编辑权限、数据查看权限等），保存即可。用户可以被分配多个角色，权限取并集。",
+    "relevant_docs": ["07-权限设置.md"],
+    "difficulty": "medium",
+    "intent": "complex_reasoning",
+    "test_type": "复杂推理",
+    "note": "测试ReAct Agent：需要多步推理"
+  },
+  {
+    "id": "query_010",
+    "question": "登录失败怎么办？",
+    "expected_answer": "请检查邮箱地址是否正确、密码是否正确、是否开启了Caps Lock、是否开启了二次验证需要输入验证码。如果仍然无法登录，可以使用忘记密码功能重置密码。",
+    "relevant_docs": ["03-注册登录.md", "12-常见问题.md"],
+    "difficulty": "medium",
+    "intent": "troubleshooting",
+    "test_type": "故障排除",
+    "note": "测试ReAct Agent：二次检索场景"
+  },
+  {
+    "id": "query_011",
+    "question": "API调用返回401错误是什么意思？",
+    "expected_answer": "401表示未授权，可能原因：Token已过期需要重新获取、Token格式错误应该是Bearer {token}、API密钥错误需要检查Client ID和Secret。",
+    "relevant_docs": ["10-REST-API.md", "12-常见问题.md"],
+    "difficulty": "medium",
+    "intent": "troubleshooting",
+    "test_type": "故障排除"
+  },
+  {
+    "id": "query_012",
+    "question": "如何获取API Token？",
+    "expected_answer": "使用OAuth 2.0获取Token。在管理后台创建API密钥，使用Client ID和Client Secret调用POST /oauth/token接口获取Access Token。Token有效期为1小时，过期后需要重新获取。",
+    "relevant_docs": ["10-REST-API.md"],
+    "difficulty": "medium",
+    "intent": "factual",
+    "test_type": "API使用"
+  },
+  {
+    "id": "query_013",
+    "question": "Webhook如何配置？",
+    "expected_answer": "登录管理后台，进入系统设置→Webhook配置，点击新建Webhook，填写Webhook名称、URL（必须是HTTPS）、认证方式（Basic Auth或Bearer Token）、认证密钥和订阅事件类型，保存即可。",
+    "relevant_docs": ["11-Webhook配置.md"],
+    "difficulty": "medium",
+    "intent": "factual",
+    "test_type": "配置指南"
+  },
+  {
+    "id": "query_014",
+    "question": "Webhook发送失败会重试吗？",
+    "expected_answer": "是的，如果Webhook请求失败（HTTP状态码不是2xx），系统会重试：第1次1秒后，第2次5秒后，第3次30秒后。如果3次重试都失败，系统会记录错误日志但不会继续重试。",
+    "relevant_docs": ["11-Webhook配置.md"],
+    "difficulty": "medium",
+    "intent": "factual",
+    "test_type": "技术细节"
+  },
+  {
+    "id": "query_015",
+    "question": "智服云支持哪些渠道接入？",
+    "expected_answer": "支持网站、微信、APP、邮件、电话等多种渠道统一管理。所有渠道的对话记录集中存储，支持统一分配和统计。",
+    "relevant_docs": ["01-产品概述.md", "02-核心功能.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "产品功能"
+  },
+  {
+    "id": "query_016",
+    "question": "如何批量导入用户？",
+    "expected_answer": "在用户管理页面点击批量导入，下载CSV模板，按照格式填写用户信息（第一行为表头：用户名、邮箱、密码、角色），上传文件即可。系统会验证格式并显示导入结果。",
+    "relevant_docs": ["06-用户管理.md"],
+    "difficulty": "medium",
+    "intent": "factual",
+    "test_type": "批量操作"
+  },
+  {
+    "id": "query_017",
+    "question": "工单状态有哪些？",
+    "expected_answer": "工单状态包括：待处理、处理中、待回复、已解决、已关闭。状态可以手动变更，也可以配置自动流转规则。",
+    "relevant_docs": ["08-工单系统.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "概念查询"
+  },
+  {
+    "id": "query_018",
+    "question": "如何转派工单？",
+    "expected_answer": "在工单详情页面点击转派按钮，选择新的处理人，填写转派原因（可选），确认即可。转派后原处理人会收到通知。",
+    "relevant_docs": ["08-工单系统.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "操作指南"
+  },
+  {
+    "id": "query_019",
+    "question": "权限模型是什么？",
+    "expected_answer": "智服云采用RBAC（基于角色的访问控制）权限模型。权限分配遵循用户-角色-权限三层结构，管理员通过分配角色来控制用户权限。系统提供三种预定义角色：管理员、编辑者、查看者。",
+    "relevant_docs": ["07-权限设置.md"],
+    "difficulty": "medium",
+    "intent": "factual",
+    "test_type": "概念查询"
+  },
+  {
+    "id": "query_020",
+    "question": "如何配置网站客服窗口？",
+    "expected_answer": "在渠道管理页面选择网站接入，复制生成的JavaScript代码，添加到网站页面的</body>标签前即可。刷新网站页面，右下角会出现客服窗口。",
+    "relevant_docs": ["04-首次配置.md", "12-常见问题.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "配置指南"
+  },
+  {
+    "id": "query_021",
+    "question": "API调用频率有限制吗？",
+    "expected_answer": "是的。免费版每分钟100次，企业版每分钟1000次。超限后会返回429错误，需要等待后重试。",
+    "relevant_docs": ["10-REST-API.md", "12-常见问题.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "API限制"
+  },
+  {
+    "id": "query_022",
+    "question": "忘记密码怎么办？",
+    "expected_answer": "在登录页面点击忘记密码，输入注册邮箱，查收重置密码邮件，点击邮件中的链接设置新密码。重置链接有效期为24小时。",
+    "relevant_docs": ["03-注册登录.md", "12-常见问题.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "高频问题"
+  },
+  {
+    "id": "query_023",
+    "question": "如何验证Webhook请求签名？",
+    "expected_answer": "使用配置的密钥和请求体计算HMAC SHA256，与请求头中的signature字段比较。如果一致，说明请求来自智服云。建议验证签名以确保请求安全性。",
+    "relevant_docs": ["11-Webhook配置.md"],
+    "difficulty": "hard",
+    "intent": "factual",
+    "test_type": "技术细节",
+    "note": "测试低频知识：需要详细技术说明"
+  },
+  {
+    "id": "query_024",
+    "question": "工单可以删除吗？",
+    "expected_answer": "已关闭的工单可以删除，但删除后无法恢复。建议先导出数据再删除。",
+    "relevant_docs": ["08-工单系统.md", "12-常见问题.md"],
+    "difficulty": "simple",
+    "intent": "factual",
+    "test_type": "操作指南"
+  },
+  {
+    "id": "query_025",
+    "question": "如何设置工作时段？",
+    "expected_answer": "在系统设置→工作设置中配置工作时段。可以设置工作日、周末和节假日的不同时段。非工作时段用户咨询会转为工单或触发自动回复。",
+    "relevant_docs": ["04-首次配置.md", "12-常见问题.md"],
+    "difficulty": "medium",
+    "intent": "factual",
+    "test_type": "配置指南"
+  }
+]
+
